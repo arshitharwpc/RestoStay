@@ -1,0 +1,96 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% extends "admin/ahf.html" %}
+{% block content %}
+<style type="text/css">
+	table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+<ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/aindex/">Home</a><i class="fa fa-angle-right"></i>Tabels</li>
+            </ol>
+<div class="agile-grids">	
+				<!-- tables -->
+				
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+					  <h2>CUSTOMERS</h2>
+					    <table id="table">
+						<thead>
+						  <tr>
+							<th>id</th>
+							<th>name</th>
+							<th>email</th>
+							<th>phone</th>
+						  </tr>
+						</thead>
+						<tbody>
+							{% for x in fdata %}
+						  <tr>
+							<td>{{forloop.counter}}</td>
+							<td>{{x.username}}</td>
+							<td>{{x.useremail}}</td>
+							<td>{{x.userphone}}</td>
+							<td><a href="/tabledelete/?tid={{x.id}}"><i class="fa fa-trash"></i></a></td>
+						  </tr>
+						  {% endfor %}
+						</tbody>
+					  </table>
+					</div>
+				</div>
+				  <code class="js">
+					$('#table').basictable();
+				  </code>
+
+<!-- ------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------ -->
+						
+<!-- ------------------------------------------------------------------- -->
+           
+				
+
+				</div>
+				<!-- //tables -->
+			</div>
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+
+</div>
+<!--inner block end here-->
+
+{% endblock%}

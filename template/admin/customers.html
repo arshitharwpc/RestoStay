@@ -1,0 +1,133 @@
+{% extends "admin/ahf.html" %}
+{% block content %}
+<style type="text/css">
+	table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script >	
+function ajafun()
+{
+	// alert("a");
+	var uid=document.getElementById('userid').value;
+	$.ajax({
+
+				url:'/ajaxview/',
+				data:
+				{
+					'usrid':uid
+				},
+				datatype: 'json',
+				success: function(data)
+				{
+					document.getElementById("nameid").innerHTML=data.aa;
+					document.getElementById("emailid").innerHTML=data.bb;
+					document.getElementById("phoneid").innerHTML=data.cc;
+					
+
+
+				}
+
+
+			});
+}
+</script>
+<ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/aindex/">Home</a><i class="fa fa-angle-right"></i>Tabels</li>
+            </ol>
+<div class="agile-grids">	
+				<!-- tables -->
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+					  <h2>CUSTOMERS</h2>
+
+
+					  <select  id="userid" onchange="ajafun()" >
+
+	  <option>Select Worker</option>
+
+	  {% for x in edata %}
+	  <option value="{{x.id}}">{{x.username}}</option>
+	  {% endfor %}
+</select>
+
+
+
+
+
+
+    
+					    <table id="table">
+					    	                 
+           </select>
+						<thead>
+						  <tr>
+							
+							<th>name</th>
+							<th>email</th>
+							<th>phone</th>
+						  </tr>
+						</thead>
+						<tbody>
+						
+						  <tr>
+							
+							<td id="nameid"></td>
+							<td id="emailid"></td>
+							<td id="phoneid"></td>
+						  </tr>
+						 
+						</tbody>
+					  </table>
+					</div>
+				</div>
+
+<!-- ------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------------------------ -->
+						
+<!-- ------------------------------------------------------------------- -->
+           
+				
+
+				</div>
+				<!-- //tables -->
+			</div>
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+
+</div>
+<!--inner block end here-->
+
+{% endblock%}

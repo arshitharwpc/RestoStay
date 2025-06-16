@@ -1,0 +1,114 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% extends "admin/ahf.html" %}
+{% block content %}
+	<ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a><i class="fa fa-angle-right"></i>Forms <i class="fa fa-angle-right"></i> Input</li>
+            </ol>
+		<!--grid-->
+ 	<div class="grid-form">
+ 		<div class="grid-form1">
+ 		<h2 id="forms-example" class="">Menu form</h2>
+  
+<!----->
+<!---->
+<div class="grid-form1">
+<h3 id="forms-inline">Breakfast FORM</h3>
+<form class="form-inline" action="/binput/" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputName2">item name</label>
+    <input type="text" class="form-control" name="text1" id="exampleInputName2" placeholder=""><br><br>
+  </div>
+  <div class="form-group">
+   <label for="exampleInputName3">Price</label>
+    <input type="text" class="form-control" name="text2" id="exampleInputName3" placeholder=""><br><br>
+  </div>
+  <!-- <div class="form-group">
+   <label for="exampleInputName4">Amount</label>
+    <input type="text" class="form-control" name="text3" id="exampleInputName4" placeholder=""><br><br>
+  </div> -->
+  
+   <div class="form-group">
+    <label for="exampleInputName9">Browse</label>
+    <input type="file" class="form-control" name="text7" id="exampleInputName9" placeholder=""><br><br>
+  </div>
+  <button type="submit" class="btn btn-default btn-send">Send</button>
+</form>
+</div>
+<div class="grid-form1">
+<h3 id="forms-inline">Lunch FORM</h3>
+<form class="form-inline" action="/linput/" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputName2">item name</label>
+    <input type="text" class="form-control" name="text1" id="exampleInputName2" placeholder=""><br><br>
+  </div>
+  <div class="form-group">
+   <label for="exampleInputName3">Price</label>
+    <input type="text" class="form-control" name="text2" id="exampleInputName3" placeholder=""><br><br>
+  </div>
+  <!-- <div class="form-group">
+   <label for="exampleInputName4">Amount</label>
+    <input type="text" class="form-control" name="text3" id="exampleInputName4" placeholder=""><br><br>
+  </div> -->
+  
+   <div class="form-group">
+    <label for="exampleInputName9">Browse</label>
+    <input type="file" class="form-control" name="text7" id="exampleInputName9" placeholder=""><br><br>
+  </div>
+  <button type="submit" class="btn btn-default btn-send">Send</button>
+</form>
+</div>
+<div class="grid-form1">
+<h3 id="forms-inline">Dinner FORM</h3>
+<form class="form-inline" action="/dinput/" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputName2">item name</label>
+    <input type="text" class="form-control" name="text1" id="exampleInputName2" placeholder=""><br><br>
+  </div>
+  <div class="form-group">
+   <label for="exampleInputName3">Price</label>
+    <input type="text" class="form-control" name="text2" id="exampleInputName3" placeholder=""><br><br>
+  </div>
+  <!-- <div class="form-group">
+   <label for="exampleInputName4">Amount</label>
+    <input type="text" class="form-control" name="text3" id="exampleInputName4" placeholder=""><br><br>
+  </div> -->
+   <div class="form-group">
+    <label for="exampleInputName9">Browse</label>
+    <input type="file" class="form-control" name="text7" id="exampleInputName9" placeholder=""><br><br>
+  </div>
+  <button type="submit" class="btn btn-default btn-send">Send</button>
+</form>
+</div>
+
+
+
+<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-main").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-main").addClass("fixed");
+				}else{
+					$(".header-main").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+<!--inner block start here-->
+<div class="inner-block">
+
+</div>
+<!--inner block end here-->
+{% endblock %}

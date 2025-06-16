@@ -1,0 +1,65 @@
+{% extends "admin/ahf.html" %}
+{% block content %}
+
+<section class="banner-bottom py-5">
+        <div class="container py-md-5">
+            <h3 class="title-wthree mb-lg-5 mb-4 text-center">Cart </h3>
+            <div class="row contact_information">
+                <div class="col-md-6">
+                    <style type="text/css">
+    button{border-radius: 12px;}
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr {background-color: #f2f2f2}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+<h6 style="color:red;">{{error}}</h6>
+                    <table>
+                        <tr>
+                            <th>id</th>
+                            <th>Product Name</th>
+                            <th>Image</th>
+                            <th>Total amount</th>
+                            <th>Status</th>
+                        {% for x in cdata %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{x.pid.productname}}</td>
+                            <td><img src="{{x.pid.image.url}}" style="width:100px;height: 100px; object-fit: contain;"></td>
+                                
+                            <td>{{x.totalamount}}</td>
+                            <td>{{x.status}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>Total: {{total}}</td>
+                        </tr>
+
+                    </table><br>
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+    <!--//contact -->
+
+
+    <!--/newsletter -->
+    
+    <!--//newsletter -->
+    <!--/shipping-->
+   
+    <!--//shipping-->
+{% endblock %}
